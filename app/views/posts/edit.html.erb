@@ -1,0 +1,10 @@
+<h1>Edit Post</h1>
+<div class="well">
+  <%= form_for @post do |f| %>
+
+    <%= render 'shared/errors' %>
+    
+    <%= render 'form', f: f %>
+
+  <% end %> 
+</div>

@@ -1,13 +1,20 @@
-<p>
-  <% @post.categories.each do |category| %>
-    <span class="badge"><%= category.name %></span>
-  <% end %>
+<p class='pull-right'>
+  [<%= link_to 'edit this post', edit_post_path(@post)%>]
+</p>
 
+<p>  
   <%= render @post.categories %>
 </p>
 
 <% render 'shared/content_title', title: @post.title %>
+  <div class="well">
 <p>
   <%= @post.description %>
-  <hr/>
 </p>
+<p>
+  <%= @post.url %>
+</p>
+</div>
+<div class='nav_item'>
+  <%= link_to 'New post', new_post_path, class: 'btn btn-success btn-small' %>
+</div>
