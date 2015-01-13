@@ -1,3 +1,4 @@
+Original <a href="tl-postit.herokuapp.com">Heroku</a>
 == Getting Started
 
 1. Make sure you have rails version 4. Type "rails -v" to make sure.
