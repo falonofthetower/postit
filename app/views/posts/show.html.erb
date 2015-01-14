@@ -6,15 +6,18 @@
   <%= render @post.categories %>
 </p>
 
+<h1><%= @post.title %></h1>
+
 <% render 'shared/content_title', title: @post.title %>
-  <div class="well">
+<hr/>
+
 <p>
-  <%= @post.description %>
+  <%= @post.description %> 
 </p>
+<hr/>
+
 <p>
-  <%= @post.url %>
 </p>
-</div>
 <div class='nav_item'>
   <%= link_to 'New post', new_post_path, class: 'btn btn-success btn-small' %>
 </div>

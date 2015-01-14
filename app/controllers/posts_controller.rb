@@ -13,6 +13,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.creator_id = User.first.id
 
     if @post.save
       redirect_to @post
