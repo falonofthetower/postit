@@ -1,4 +1,4 @@
-Original [Heroku](tl-postit.herokuapp.co)
+Original [Heroku] (www.tl-postit.herokuapp.co)
 == Getting Started
 
 1. Make sure you have rails version 4. Type "rails -v" to make sure.
