@@ -11,12 +11,24 @@
 <% render 'shared/content_title', title: @post.title %>
 <hr/>
 
+    <%= render 'shared/errors', object: @comment %>
 <p>
   <%= @post.description %> 
 </p>
 <hr/>
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
 
+  <%= f.submit 'Add Comment', class: 'btn btn-primary' %>
+<% end %>
 <p>
+  <% @post.comments.each do |comment| %>
+  <div class='well'>
+    <%= comment.body %>
+  </div>
+<% end %>
+
 </p>
 <div class='nav_item'>
   <%= link_to 'New post', new_post_path, class: 'btn btn-success btn-small' %>

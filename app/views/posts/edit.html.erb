@@ -2,7 +2,7 @@
 <div class="well">
   <%= form_for @post do |f| %>
 
-    <%= render 'shared/errors' %>
+    <%= render 'shared/errors', object: @post %>
     
     <%= render 'form', f: f %>
 
