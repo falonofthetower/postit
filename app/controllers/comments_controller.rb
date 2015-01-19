@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
 #    binding.pry
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comments_params)
+    @comment.user_id = User.first.id
     if @comment.save
       redirect_to post_path(@post)
     else

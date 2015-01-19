@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update]
+  before_action :set_categories, only: [:index, :new, :update, :edit]
   def index    
     @posts = Post.all
   end
@@ -10,9 +11,11 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @categories = Category.all
   end
 
   def create
+    @categories = Category.all
     @post = Post.new(post_params)
     @post.creator_id = User.first.id
 
@@ -42,5 +45,9 @@ class PostsController < ApplicationController
 
     def set_post
       @post = Post.find(params[:id])
+    end
+
+    def set_categories
+      @categories = Category.all
     end
 end

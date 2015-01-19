@@ -6,7 +6,7 @@
   <%= render @post.categories %>
 </p>
 
-<h1><%= @post.title %></h1>
+<h1><%= link_to @post.title, fix_url(@post.url) %></h1>
 
 <% render 'shared/content_title', title: @post.title %>
 <hr/>
