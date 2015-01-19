@@ -16,9 +16,9 @@
 
 <div class="control-group">
   binding.pry
-  <%= @categories.each do |category| %>
-    <%= f.label category.name %>
-    <%= check_box_tag "category[category_ids][]", category.id, @post.categories.include?(category) %>
+    <%= f.label "Categories" %>
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+      <% cb.label(class: "checkbox inline") {cb.check_box(class: "checkbox") + cb.text} %>
   <% end %>
 </div>
 

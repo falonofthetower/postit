@@ -15,7 +15,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    @categories = Category.all
     @post = Post.new(post_params)
     @post.creator_id = User.first.id
 
@@ -40,7 +39,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :description, :url)
+      params.require(:post).permit(:title, :description, :url, category_ids: [])
     end
 
     def set_post
