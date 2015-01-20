@@ -1,3 +1,3 @@
 $(document).ready(function(){
-      $('#body').set_timezone(); 
+      $('#timezone').set_timezone(); 
 });
