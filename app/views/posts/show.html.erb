@@ -26,6 +26,7 @@
   <% @post.comments.each do |comment| %>
   <div class='well'>
     <%= comment.body %>
+    by  <%= comment.user.username %>
   </div>
 <% end %>
 

@@ -1,0 +1,30 @@
+<h1>The current marvelous user: <%= current_user.username %></h1>
+<hr>
+<div class="well">
+  <ul>
+    <li>
+      Username: <%= current_user.username %>
+  </li>
+  <li>
+    Time zone: Later
+  </li>
+</ul>
+</div>
+<%= current_user.username %>'s Activity
+<ul class="nav nav-tabs">
+  <li class='<%= 'active' if params[:tab].nil? %>'>
+    <%= link_to("#{@user.posts.size} posts", user_path(@user)) %>
+  </li>
+  <li class='<%= 'active' if params[:tab] == 'comments' %>'>
+    <%= link_to("#{@user.comments.size} comments", user_path(@user, tab: 'comments')) %>
+  </li>
+</ul>
+<% if params[:tab].nil? %>
+  <% @user.posts.each do |post| %>
+    <%= render 'shared/show_post', post: post %>
+  <% end %>
+<% else %>
+  <% @user.comments.each do |comment| %>
+    <%= render 'show_comment', comment: comment, user: @user %>
+  <% end %>
+<% end %>

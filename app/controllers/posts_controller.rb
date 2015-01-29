@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update]
   before_action :set_categories, only: [:index, :new, :update, :edit]
+  before_action :require_user, except: [:show, :index]
   def index    
     @posts = Post.all
   end
@@ -16,7 +17,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.creator_id = User.first.id
+    @post.creator_id = @current_user.id
 
     if @post.save
       redirect_to @post
