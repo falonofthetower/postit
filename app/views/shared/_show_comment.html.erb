@@ -1,4 +1,4 @@
 <div class='well'>
-  "<%= comment.body %>" on <%= link_to("#{comment.post.title}", post_path(comment.post)) %><br />
-  posted by <%= link_to("#{comment.user.username}", user_path(@user)) %> at <%= comment.created_at %> 
+    "<i><%= comment.body %></i>" on <%= link_to("#{comment.post.title}", post_path(comment.post)) %><br />
+    <span class='quiet'>posted by</span> <%= link_to("#{comment.user.username}", user_path(@user)) %> at <%= comment.created_at %> 
 </div>
