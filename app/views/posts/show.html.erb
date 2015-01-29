@@ -24,12 +24,8 @@
 <% end %>
 <p>
   <% @post.comments.each do |comment| %>
-  <div class='well'>
-    <%= comment.body %>
-    by  <%= comment.user.username %>
-  </div>
-<% end %>
-
+    <%= render 'shared/show_comment', comment: comment, user: current_user %>
+  <% end %>
 </p>
 <div class='nav_item'>
   <%= link_to 'New post', new_post_path, class: 'btn btn-success btn-small' %>

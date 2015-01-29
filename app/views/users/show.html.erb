@@ -25,6 +25,6 @@
   <% end %>
 <% else %>
   <% @user.comments.each do |comment| %>
-    <%= render 'show_comment', comment: comment, user: @user %>
+    <%= render 'shared/show_comment', comment: comment, user: @user %>
   <% end %>
 <% end %>
