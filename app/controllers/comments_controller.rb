@@ -10,6 +10,20 @@ class CommentsController < ApplicationController
     end
   end
 
+  def vote
+    binding.pry
+    @comment = Comment.find(params[:id])
+    @vote = Vote.create(voteable: @comment, creator: current_user, vote: params[:vote])
+    
+    if @vote.valid?
+      flash[:notice] = "That's a vote!"
+    else
+      flash[:error] = "Um, looks like you voted on that"
+    end
+
+    redirect_to :back
+  end
+
   private
   def comments_params
     params.require(:comment).permit(:body, :post_id)
