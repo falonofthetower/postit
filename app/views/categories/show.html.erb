@@ -1,5 +1,9 @@
 <% header = link_to('All Posts', posts_path) + " &raquo; #{@category.name}".html_safe %>
-<%= render 'shared/content_title', title: header %> 
-<%= @category.posts.each do |post| %>
-  <%= render 'shared/show_post', post: post %>
+  <% if @category.posts == [] %>
+    <h2>Ooops, this category needs some posts</h2>
+  <% else %>
+    <%= render 'shared/content_title', title: header %> 
+    <%= @category.posts.each do |post| %>
+        <%= render 'shared/show_post', post: post %>
+    <% end %>
 <% end %>
