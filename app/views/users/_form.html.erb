@@ -14,5 +14,5 @@
   </div>
 
   <div class="control-group">
-    <%= f.submit 'Login', class: 'btn btn-primary' %>
+    <%= f.submit(@user.new_record? ? 'Register User' : 'Update User', class: 'btn btn-primary') %>
   </div>

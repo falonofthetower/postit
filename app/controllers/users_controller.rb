@@ -23,6 +23,15 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def update
+    if @user.update(user_params)
+      flash[:notice] = "You've been updated"
+      redirect_to @user
+    else
+      render @user
+    end
+  end
+
   private
 
   def user_params
