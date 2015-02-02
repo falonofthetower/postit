@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       flash[:notice] = "You've been updated"
       redirect_to @user
     else
-      render @user
+      render 'edit'
     end
   end
 
