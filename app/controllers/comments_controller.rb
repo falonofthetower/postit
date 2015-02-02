@@ -1,12 +1,16 @@
 class CommentsController < ApplicationController
+  before_action :require_user
+
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comments_params)
     @comment.user_id = current_user.id
     if @comment.save
       redirect_to post_path(@post)
+      flash[:notice] = "Thanks for commenting"
     else
-      render 'posts/show'
+      flash[:errors] = "Commenting requires that you...comment"
+      redirect_to :back
     end
   end
 
