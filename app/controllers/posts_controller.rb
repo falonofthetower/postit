@@ -47,7 +47,9 @@ class PostsController < ApplicationController
       flash[:notice] = "Post updated!"
       redirect_to @post
     else
+      flash[:error] = "Something went wrong!"
       render 'edit'
+      flash.now
     end
   end
 
