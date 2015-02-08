@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
   has_secure_password 
   validates :username, presence: true, uniqueness: true
   validates_presence_of :password, presence: true, on: :create
+
+  def already_voted?(object)
+    !object.votes.where(creator: self).present?
+  end
 end
