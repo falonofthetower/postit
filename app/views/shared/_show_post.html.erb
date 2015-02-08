@@ -4,7 +4,7 @@
     </div>
   <div class="span8 well">
     <%= render post.categories %>
-    <h4><%= link_to post.title, post.url %></h4>
+    <h4><%= link_to post.title, fix_url(post.url) %></h4>
     <p><%= post.description %></p>
     <span class="quiet">posted by</span> <%= post.creator.username %>
   <smalL>at <%= pretty_date post.created_at %></small>
