@@ -3,7 +3,7 @@
     <h2>Ooops, this category needs some posts</h2>
   <% else %>
     <%= render 'shared/content_title', title: header %> 
-    <%= @category.posts.each do |post| %>
+    <% @category.posts.each do |post| %>
         <%= render 'shared/show_post', post: post %>
     <% end %>
 <% end %>
