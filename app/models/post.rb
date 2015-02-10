@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
   belongs_to :creator, class_name: 'User', foreign_key: :creator_id
+  before_create :create_slug
   has_many :comments 
   has_many :post_categories
   has_many :categories, through: :post_categories
@@ -23,5 +24,13 @@ class Post < ActiveRecord::Base
 
   def user_voted?
     self.votes.where(user_id: current_user.id).present?
+  end
+
+  def to_param
+    slug
+  end
+
+  def create_slug
+    self.slug = self.title.parameterize
   end
 end
