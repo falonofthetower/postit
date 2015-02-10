@@ -25,7 +25,7 @@
 <% end %>
 <p>
   <% @post.comments.each do |comment| %>
-    <%= render 'shared/show_comment', comment: comment, user: current_user, show_post: false %>
+    <%= render 'shared/show_comment', comment: comment, user: current_user, post: @post, show_post: false %>
   <% end %>
 </p>
 <div class='nav_item'>

@@ -1,0 +1,1 @@
+$('#comment_<%= @comment.id %>_votes').html('<%= j(render partial: 'shared/voting_well', :locals => { object: @comment }) %>'); 
