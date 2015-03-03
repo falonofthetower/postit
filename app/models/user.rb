@@ -15,6 +15,14 @@ class User < ActiveRecord::Base
     !object.votes.where(creator: self).present?
   end
 
+  def admin?
+    self.role == 'admin'
+  end
+
+  def moderator?
+    self.role == 'moderator'
+  end
+
   def to_param
     slug
   end

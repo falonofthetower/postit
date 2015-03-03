@@ -2,7 +2,9 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :vote]
   before_action :set_categories, only: [:index, :new, :update, :edit]
   before_action :require_user, except: [:show, :index]
+  before_action :require_creator, only: [:edit, :update]
 
+  helper_method :creator?
   def index    
     @posts = Post.all.sort_by{|x| x.total_votes}.reverse
   end
@@ -58,6 +60,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def creator?
+    current_user == @post.creator || current_user.admin?
+  end
+
   private
     def post_params
       params.require(:post).permit(:title, :description, :url, category_ids: [])
@@ -69,5 +75,9 @@ class PostsController < ApplicationController
 
     def set_categories
       @categories = Category.all
+    end
+
+    def require_creator
+      access_denied unless logged_in? and creator? 
     end
 end

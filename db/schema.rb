@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150211005754) do
-=======
-ActiveRecord::Schema.define(version: 20150221004336) do
->>>>>>> slug_module
+ActiveRecord::Schema.define(version: 20150226153228) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -50,16 +46,11 @@ ActiveRecord::Schema.define(version: 20150221004336) do
   end
 
   create_table "users", force: true do |t|
-<<<<<<< HEAD
-    t.string "username"
-    t.string "password_digest"
-    t.string "slug"
-=======
     t.string  "username"
     t.string  "password_digest"
     t.string  "slug"
     t.boolean "admin"
->>>>>>> slug_module
+    t.string  "role"
   end
 
   create_table "votes", force: true do |t|
