@@ -1,7 +1,7 @@
 Postit
 ======
 
-Part of [Tealeaf Academy](https:://gotealeaf.com/) for the Rapid Prototyping with Ruby on Rails course.
+Part of [Tealeaf Academy](https://gotealeaf.com/) for the Rapid Prototyping with Ruby on Rails course.
 
 You can find my app in the [aqueous depths](https://aqueous-depths-8268.herokuapp.com/) on Heroku
 
