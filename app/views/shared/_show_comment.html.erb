@@ -1,6 +1,6 @@
 <div class="row">
   <div class='span0 well text-center' id='comment_<%=comment.id%>_votes'>
-      <%= render partial: 'shared/voting_well', :locals => { :object => comment, :path => vote_post_comment_path(@post, comment, vote: true) } %>
+      <%= render 'shared/voting_well', object: comment %>
   </div>
   <div class='span8 well'>
     "<i><%= comment.body %></i>" on <%= link_to("#{comment.post.title}", post_path(comment.post)) if show_post %><br />

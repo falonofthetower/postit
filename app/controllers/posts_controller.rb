@@ -7,6 +7,11 @@ class PostsController < ApplicationController
   helper_method :creator?
   def index    
     @posts = Post.all.sort_by{|x| x.total_votes}.reverse
+
+    respond_to do |format|
+      format.json { render json: @posts }
+      format.html
+    end
   end
   
   def show    

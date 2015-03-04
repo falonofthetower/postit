@@ -1,6 +1,6 @@
 <div class="row">
     <div class='span0 well text-center' id='post_<%=post.id%>_votes'>
-      <%= render partial: 'shared/voting_well', :locals => { :object => post, :path => vote_post_path(post, vote: true) } %>
+      <%= render 'shared/voting_well', object: post %>
     </div>
   <div class="span8 well">
     <%= render post.categories %>

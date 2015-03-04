@@ -1,5 +1,5 @@
 <% if logged_in? && current_user.already_voted?(object) %>
-  <%= link_to path, method: 'post', remote: true do %>
+  <%= link_to path_to_vote(object, true), method: 'post', remote: true do %>
     <i class='icon-arrow-up'></i>
   <% end %>
   <br />
@@ -7,7 +7,7 @@
 <span><%= object.total_votes %> votes</span>
 <br />
 <% if logged_in? && current_user.already_voted?(object) %>
-  <%= link_to path, method: 'post', remote: true do %>
+  <%= link_to path_to_vote(object, false), method: 'post', remote: true do %>
     <i class='icon-arrow-down'></i>
   <% end %>
 <% end %>
